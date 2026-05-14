@@ -1,0 +1,67 @@
+﻿@page
+
+@using Hl7ToFhirDemo.Pages
+@model IndexModel
+
+
+
+<h2>HL7 → FHIR Converter</h2>
+
+<input type="file" id="fileInput" accept=".txt,.hl7" />
+<br />
+<br />
+
+<textarea id="hl7Input" rows="10" cols="80" placeholder="Or paste HL7 here..."></textarea>
+
+<br />
+<br />
+<button onclick="convert()">Convert</button>
+<button onclick="downloadJson()">Download JSON</button>
+
+<h3>FHIR Output</h3>
+<pre id="output"></pre>
+
+<script>
+    let latestJson = "";
+
+    document.getElementById("fileInput").addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("hl7Input").value = e.target.result;
+        };
+        reader.readAsText(file);
+    });
+
+    function convert() {
+        fetch('/api/convert', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ hl7Message: document.getElementById("hl7Input").value })
+        })
+        .then(res => res.json())
+        .then(data => {
+            latestJson = JSON.stringify(data, null, 2);
+            document.getElementById("output").innerText = latestJson;
+        });
+    }
+
+    function downloadJson() {
+        if (!latestJson) {
+            alert("Convert first!");
+            return;
+        }
+
+        const blob = new Blob([latestJson], { type: "application/json" });
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "fhir-patient.json";
+        a.click();
+
+        window.URL.revokeObjectURL(url);
+    }
+</script>

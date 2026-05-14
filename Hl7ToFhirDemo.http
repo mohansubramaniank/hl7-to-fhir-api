@@ -1,0 +1,6 @@
+@Hl7ToFhirDemo_HostAddress = http://localhost:5064
+
+GET {{Hl7ToFhirDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
