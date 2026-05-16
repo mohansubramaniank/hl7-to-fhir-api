@@ -20,6 +20,12 @@ ASP.NET Core based healthcare interoperability API that converts HL7 v2 messages
 
 ---
 
+# Architecture Overview
+
+![Architecture Diagram](hl7-to-fhir-diagram-1.png)
+
+---
+
 # Technologies Used
 
 * ASP.NET Core Web API
