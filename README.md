@@ -11,6 +11,7 @@
 - [Features](#features)
 - [Architecture Overview](#architecture-overview)
 - [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
 - [Use Cases](#use-cases)
 - [Supported HL7 Segments](#supported-hl7-segments)
 - [Supported HL7 Message Types](#supported-hl7-message-types)
@@ -21,6 +22,7 @@
 - [Logging](#logging)
 - [Deployment](#deployment)
 - [Swagger API Documentation](#swagger-api-documentation)
+- [Live Demo](#live-demo)
 - [Roadmap](#roadmap)
 - [Vision](#vision)
 - [Planned Features](#planned-features)
@@ -328,19 +330,26 @@ This project demonstrates real-world healthcare interoperability workflows betwe
 - Cloud Deployment
 - JSON Serialization
 
+# License
+
+This project is licensed under the MIT License.
+
+See the LICENSE file for details.
+
 # Author
 
 Mohan Subramanian
 
 Healthcare Integration Engineer
 
-Specializing in
+**Expertise**
 
-• HL7 v2
-• FHIR R4
-• ASP.NET Core
-• Healthcare APIs
-• System Integration
+- HL7 v2
+- FHIR R4
+- ASP.NET Core
+- Healthcare APIs
+- System Integration
+- RESTful Services
 
 > **Note**
 >
