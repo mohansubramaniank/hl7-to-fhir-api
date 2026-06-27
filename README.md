@@ -254,8 +254,8 @@ Swagger UI available at:
 ```
 ## Demo
 
-- Video Demonstration
-- Swagger UI
+- Video Demonstration (https://drive.google.com/file/d/1WI3mjuLbBj70HYjh1iVMQKmDBV9GCR75/view)
+- Swagger UI (https://hl7-to-fhir-api.onrender.com/swagger/index.html)
 - Sample HL7 Message
   
 # Vision
