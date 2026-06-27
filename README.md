@@ -6,38 +6,38 @@
 
 ## Table of Contents
 
-- Overview
-- Why This Project
-- Features
-- Use Cases
-- Architecture
-- Technologies
-- Supported HL7 Segments
-- Supported Message Types
-- API Endpoints
-- Upload API
-- Sample Response
-- Validation
-- Logging
-- Deployment
-- Swagger
-- Roadmap
-- Skills Demonstrated
-- Vision
-- Project Goal
-- Author
+- [Overview](#hl7-to-fhir-conversion-api)
+- [Why This Project](#why-this-project)
+- [Features](#features)
+- [Architecture Overview](#architecture-overview)
+- [Technologies Used](#technologies-used)
+- [Use Cases](#use-cases)
+- [Supported HL7 Segments](#supported-hl7-segments)
+- [Supported HL7 Message Types](#supported-hl7-message-types)
+- [API Endpoints](#api-endpoints)
+- [Upload HL7 File](#upload-hl7-file)
+- [Sample FHIR Response](#sample-fhir-response)
+- [Validation Support](#validation-support)
+- [Logging](#logging)
+- [Deployment](#deployment)
+- [Swagger API Documentation](#swagger-api-documentation)
+- [Roadmap](#roadmap)
+- [Vision](#vision)
+- [Planned Features](#planned-features)
+- [Project Goal](#project-goal)
+- [Author](#author)
 
-# [Overview](#hl7-to-fhir-conversion-api)
+# HL7 to FHIR Conversion API
 
 Healthcare organizations still rely heavily on HL7 v2 messages while modern applications increasingly adopt the FHIR standard. This project bridges that gap by providing a lightweight ASP.NET Core API that parses HL7 v2 messages and converts them into FHIR resources such as Patient, Observation, and Encounter. It is designed for developers, integration engineers, and healthcare interoperability projects.
 ---
-# [Why This Project](#why-this-project)
+# Why This Project
 
 Many hospitals continue to exchange clinical information using HL7 v2 messages, while modern healthcare applications and APIs increasingly rely on the FHIR standard.
 
 This project simplifies the transition by providing an API that converts HL7 messages into standardized FHIR resources, making integration with modern healthcare platforms easier.
 
-# [Features](#features)
+# Features
 
 * HL7 v2 message parsing
 * FHIR Bundle generation
@@ -54,17 +54,17 @@ This project simplifies the transition by providing an API that converts HL7 mes
 
 ---
 
-# [Architecture Overview](#architecture-overview)
+# Architecture Overview
 
 ![Architecture Diagram](hl7-to-fhir-diagram-1.png)
 
 ---
 
-# [Technologies Used](#technologies-used)
+# Technologies Used
 
 * ASP.NET Core 10.0
 * C#
-* HL7 v2.5.1
+* HL7 v2.3
 * FHIR R4
 * Swagger / OpenAPI
 * Docker
@@ -140,7 +140,7 @@ Run the container:
 docker run -p 8080:80 hl7-to-fhir-api
 ```
 
-# [Use Cases](#use-cases)
+# Use Cases
 
 - Hospital Information Systems
 - Electronic Health Records (EHR)
@@ -150,7 +150,7 @@ docker run -p 8080:80 hl7-to-fhir-api
 - Healthcare API Development
 
 
-# [Supported HL7 Segments](#supported-hl7-segments)
+# Supported HL7 Segments
 
 | HL7 Segment | FHIR Resource |
 | ----------- | ------------- |
@@ -159,7 +159,7 @@ docker run -p 8080:80 hl7-to-fhir-api
 | PV1         | Encounter     |
 
 ---
-## [Supported HL7 Message Types](#supported-hl7-message-types)
+## Supported HL7 Message Types
 
 Current support:
 
@@ -167,7 +167,7 @@ Current support:
 - ADT^A04
 - ORU^R01 (planned)
 
-# [API Endpoints](#api-endpoints)
+# API Endpoints
 
 ## Convert HL7 Message
 
@@ -185,7 +185,7 @@ Current support:
 }
 ```
 
-## [Upload HL7 File](#upload-hl7-file)
+## Upload HL7 File
 
 ### POST
 
@@ -200,7 +200,7 @@ Upload:
 
 ---
 
-# [Sample FHIR Response](#sample-fhir-response)
+# Sample FHIR Response
 
 ```json
 {
@@ -229,7 +229,7 @@ Upload:
 
 ---
 
-# [Validation Support](#validation-support)
+# Validation Support
 
 The API validates:
 
@@ -240,7 +240,7 @@ The API validates:
 
 ---
 
-# [Logging](#logging)
+# Logging
 
 Application logging added using ASP.NET Core ILogger.
 
@@ -252,7 +252,7 @@ Tracks:
 
 ---
 
-# [Deployment](#deployment)
+# Deployment
 
 Deployed using:
 
@@ -260,7 +260,7 @@ Deployed using:
 * Render Cloud Platform
 
 ---
-## [Roadmap](#roadmap)
+## Roadmap
 
 ### Version 1.0
 
@@ -286,7 +286,7 @@ Deployed using:
 - [ ] Mapping Generator
 ---
 
-# [Swagger API Documentation](#swagger-api-documentation)
+# Swagger API Documentation
 
 Swagger UI available at:
 
@@ -298,11 +298,11 @@ Swagger UI available at:
 - **Swagger UI:** https://hl7-to-fhir-api.onrender.com/swagger/index.html
 - **Demo Video:** https://drive.google.com/file/d/1WI3mjuLbBj70HYjh1iVMQKmDBV9GCR75/view
   
-# [Vision](#vision)
+# Vision
 
 - This project is evolving into an open-source healthcare interoperability toolkit supporting HL7 parsing, FHIR conversion, validation, mapping, and AI-assisted healthcare integration.
 
-# [Planned Features](#planned-features)
+# Planned Features
 
 * Practitioner resource mapping
 * AllergyIntolerance support
@@ -312,7 +312,7 @@ Swagger UI available at:
 * Azure/AWS deployment
 * Database persistence
 
-# [Project Goal](#project-goal)
+# Project Goal
 
 This project demonstrates real-world healthcare interoperability workflows between legacy HL7 v2 systems and modern FHIR APIs.
 
@@ -328,7 +328,7 @@ This project demonstrates real-world healthcare interoperability workflows betwe
 - Cloud Deployment
 - JSON Serialization
 
-# [Author](#author)
+# Author
 
 Mohan Subramanian
 
