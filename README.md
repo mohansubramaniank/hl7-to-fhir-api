@@ -27,11 +27,11 @@
 - Project Goal
 - Author
 
-# HL7 to FHIR Conversion API
+# [Overview](#hl7-to-fhir-conversion-api)
 
 Healthcare organizations still rely heavily on HL7 v2 messages while modern applications increasingly adopt the FHIR standard. This project bridges that gap by providing a lightweight ASP.NET Core API that parses HL7 v2 messages and converts them into FHIR resources such as Patient, Observation, and Encounter. It is designed for developers, integration engineers, and healthcare interoperability projects.
 ---
-# Why This Project?
+# [Why This Project](#why-this-project)
 
 Many hospitals continue to exchange clinical information using HL7 v2 messages, while modern healthcare applications and APIs increasingly rely on the FHIR standard.
 
@@ -60,7 +60,7 @@ This project simplifies the transition by providing an API that converts HL7 mes
 
 ---
 
-# Technologies Used
+# [Technologies Used](#technologies-used)
 
 * ASP.NET Core 10.0
 * C#
@@ -72,7 +72,75 @@ This project simplifies the transition by providing an API that converts HL7 mes
 * GitHub
 
 ---
-# Use Cases
+## Getting Started
+
+### Prerequisites
+
+Before running the project, ensure you have the following installed:
+
+* .NET 10 SDK
+* Git
+* Docker (Optional)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/mohansubramaniank/hl7-to-fhir-api.git
+```
+
+### Navigate to the Project
+
+```bash
+cd hl7-to-fhir-api
+```
+
+### Restore Dependencies
+
+```bash
+dotnet restore
+```
+
+### Build the Project
+
+```bash
+dotnet build
+```
+
+### Run the Application
+
+```bash
+dotnet run
+```
+
+The API will start locally.
+
+### Open Swagger UI
+
+Open your browser and navigate to:
+
+```text
+https://localhost:5001/swagger
+```
+
+> **Note**
+>
+> The localhost URL and port may vary depending on your Visual Studio or `launchSettings.json` configuration. After running the application, check the console output for the correct URL.
+
+### Docker (Optional)
+
+Build the Docker image:
+
+```bash
+docker build -t hl7-to-fhir-api .
+```
+
+Run the container:
+
+```bash
+docker run -p 8080:80 hl7-to-fhir-api
+```
+
+# [Use Cases](#use-cases)
 
 - Hospital Information Systems
 - Electronic Health Records (EHR)
@@ -82,7 +150,7 @@ This project simplifies the transition by providing an API that converts HL7 mes
 - Healthcare API Development
 
 
-# Supported HL7 Segments
+# [Supported HL7 Segments](#supported-hl7-segments)
 
 | HL7 Segment | FHIR Resource |
 | ----------- | ------------- |
@@ -91,7 +159,7 @@ This project simplifies the transition by providing an API that converts HL7 mes
 | PV1         | Encounter     |
 
 ---
-## Supported HL7 Message Types
+## [Supported HL7 Message Types](#supported-hl7-message-types)
 
 Current support:
 
@@ -117,34 +185,7 @@ Current support:
 }
 ```
 
-
-## Skills Demonstrated
-
-Deployment
-
-↓
-
-Swagger
-
-↓
-
-Roadmap
-
-↓
-
-Skills
-
-↓
-
-Vision
-
-↓
-
-Author
-
----
-
-## Upload HL7 File
+## [Upload HL7 File](#upload-hl7-file)
 
 ### POST
 
@@ -159,7 +200,7 @@ Upload:
 
 ---
 
-# Sample FHIR Response
+# [Sample FHIR Response](#sample-fhir-response)
 
 ```json
 {
@@ -188,7 +229,7 @@ Upload:
 
 ---
 
-# Validation Support
+# [Validation Support](#validation-support)
 
 The API validates:
 
@@ -199,7 +240,7 @@ The API validates:
 
 ---
 
-# Logging
+# [Logging](#logging)
 
 Application logging added using ASP.NET Core ILogger.
 
@@ -211,7 +252,7 @@ Tracks:
 
 ---
 
-# Deployment
+# [Deployment](#deployment)
 
 Deployed using:
 
@@ -219,7 +260,7 @@ Deployed using:
 * Render Cloud Platform
 
 ---
-## Roadmap
+## [Roadmap](#roadmap)
 
 ### Version 1.0
 
@@ -245,24 +286,23 @@ Deployed using:
 - [ ] Mapping Generator
 ---
 
-# Swagger API Documentation
+# [Swagger API Documentation](#swagger-api-documentation)
 
 Swagger UI available at:
 
 ```http
 /swagger
 ```
-## Demo
+## Live Demo
 
-- Video Demonstration (https://drive.google.com/file/d/1WI3mjuLbBj70HYjh1iVMQKmDBV9GCR75/view)
-- Swagger UI (https://hl7-to-fhir-api.onrender.com/swagger/index.html)
-- Sample HL7 Message
+- **Swagger UI:** https://hl7-to-fhir-api.onrender.com/swagger/index.html
+- **Demo Video:** https://drive.google.com/file/d/1WI3mjuLbBj70HYjh1iVMQKmDBV9GCR75/view
   
-# Vision
+# [Vision](#vision)
 
 - This project is evolving into an open-source healthcare interoperability toolkit supporting HL7 parsing, FHIR conversion, validation, mapping, and AI-assisted healthcare integration.
 
-# Planned Features
+# [Planned Features](#planned-features)
 
 * Practitioner resource mapping
 * AllergyIntolerance support
@@ -272,11 +312,23 @@ Swagger UI available at:
 * Azure/AWS deployment
 * Database persistence
 
-# Project Goal
+# [Project Goal](#project-goal)
 
 This project demonstrates real-world healthcare interoperability workflows between legacy HL7 v2 systems and modern FHIR APIs.
 
-# Author
+## Skills Demonstrated
+
+- Healthcare Interoperability
+- HL7 v2.3
+- FHIR R4
+- ASP.NET Core 10
+- REST API Development
+- Swagger/OpenAPI
+- Docker
+- Cloud Deployment
+- JSON Serialization
+
+# [Author](#author)
 
 Mohan Subramanian
 
