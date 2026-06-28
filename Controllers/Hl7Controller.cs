@@ -6,13 +6,13 @@ namespace Hl7ToFhirDemo.Controllers
 {
     [ApiController]
     [Route("api/hl7")]
-    public class Hl7Controller : Controller
+    public class Hl7Controller : ControllerBase
     {
-        private readonly Hl7ToFhirService _fhirservice;
+        private readonly Hl7ToFhirService _fhirService;
 
-        public Hl7Controller(Hl7ToFhirService fhirservice)
+        public Hl7Controller(Hl7ToFhirService fhirService)
         {
-            _fhirservice = fhirservice;
+            _fhirService = fhirService;
         }
 
         [HttpPost("convert")]
@@ -23,7 +23,7 @@ namespace Hl7ToFhirDemo.Controllers
                 return BadRequest("HL7 message is required.");
             }
 
-            var result = _fhirservice.Convert(request.Hl7Message);
+            var result = _fhirService.Convert(request.Hl7Message);
 
             return Ok(result);
         }
@@ -43,7 +43,7 @@ namespace Hl7ToFhirDemo.Controllers
                 hl7Content = await reader.ReadToEndAsync();
             }
 
-            var result = _fhirservice.Convert(hl7Content);
+            var result = _fhirService.Convert(hl7Content);
 
             return Ok(result);
         }

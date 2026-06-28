@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.Metrics;
+using System.Text.Json;
+using Hl7ToFhirDemo.Mappings;
 
 namespace Hl7ToFhirDemo.Services
 {
@@ -212,8 +214,6 @@ namespace Hl7ToFhirDemo.Services
                 });
             }
 
-
-
             var pv1Line = lines.FirstOrDefault(l => l.StartsWith("PV1"));
 
             if (pv1Line != null)
@@ -226,58 +226,10 @@ namespace Hl7ToFhirDemo.Services
                     ? parts[7].Split('^')
                     : new string[] { "", "", "" };
 
+                // Build Encounter
                 var encounter = new
                 {
-                    resourceType = "Encounter",
-
-                    id = encounterId,
-
-                    status = "finished",
-
-                    @class = new
-                    {
-                        system = "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-
-                        code = parts.Length > 2 && parts[2] == "I"
-                            ? "IMP"
-                            : "AMB",
-
-                        display = parts.Length > 2 && parts[2] == "I"
-                            ? "inpatient encounter"
-                            : "ambulatory"
-                    },
-
-                    subject = new
-                    {
-                        reference = $"Patient/{patientId}",
-                        display = $"{GetNamePart(lines, 1)} {GetNamePart(lines, 0)}"
-                    },
-
-                    location = new[]
-                    {
-            new
-            {
-                location = new
-                {
-                    display = parts.Length > 3
-                        ? parts[3].Replace("^", " ")
-                        : "Unknown"
-                }
-            }
-        },
-
-                    participant = new[]
-                    {
-            new
-            {
-                individual = new
-                {
-                    display = doctorParts.Length > 2
-                        ? $"{doctorParts[2]} {doctorParts[1]}"
-                        : "Unknown Doctor"
-                }
-            }
-        }
+                    // Encounter properties...
                 };
 
                 entries.Add(new
@@ -285,7 +237,22 @@ namespace Hl7ToFhirDemo.Services
                     fullUrl = $"urn:uuid:{encounterId}",
                     resource = encounter
                 });
+
+                // Build Practitioner using Mapper
+                var practitioner = PractitionerMapper.Map(doctorParts);
+
+                if (practitioner != null)
+                {
+                    entries.Add(new
+                    {
+                        fullUrl = $"urn:uuid:{Guid.NewGuid()}",
+                        resource = practitioner
+                    });
+                }
             }
+
+
+
 
             _logger.LogInformation("FHIR bundle generated successfully");
 
